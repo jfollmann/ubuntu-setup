@@ -1,10 +1,31 @@
+#Insomnia Plugins (not working in command line): 
+#- insomnia-plugin-dracula-theme
+#- insomnia-plugin-random-cpf
+
+echo '########## <configure git alias> ##########'
+git config --global alias.co "checkout"
+git config --global alias.graph "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
+git config --global alias.lg "log --pretty=format:'%Cred%h%Creset %C(bold)%cr%Creset %Cgreen<%an>%Creset %s' --max-count=30"
+git config --global alias.cm "commit"
+git config --global alias.ac "!git add -A && git commit"
+git config --global alias.st "status -sb"
+git config --global alias.tags "tag -l"
+git config --global alias.branches "branch -a"
+git config --global alias.ignore "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+
+echo '########## <helm add repositories> ##########'
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo add jetstack https://charts.jetstack.io
+helm repo add azure-samples https://azure-samples.github.io/helm-charts/
+helm repo add mpn-charts https://cdnmpn.blob.core.windows.net/mpn-helm-charts
+
 echo '########## <enabling workspaces for both screens> ##########'
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 
 echo '########## <installing npm global modules> ##########'
 npm install -g fkill-cli
 npm install -g json-server
-npm install -g fkill-cli
 
 echo '########## <installing themes> ##########'
 sudo apt install fonts-firacode -y

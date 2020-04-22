@@ -125,6 +125,9 @@ sudo snap install authy --beta
 echo '########## <installing insomnia> ##########'
 sudo snap install insomnia
 
+echo '########## <installing uTorrent> ##########'
+sudo snap install utorrent
+
 echo '########## <installing peek> ##########'
 sudo add-apt-repository ppa:peek-developers/stable -y
 sudo apt-get update
@@ -132,6 +135,13 @@ sudo apt-get install peek -y -f
 
 echo '########## <installing tree> ##########'
 sudo apt-get install tree -y
+
+echo '########## <installing helm> ##########'
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh
+helm version
+rm -rf get_helm.sh
 
 echo '########## <installing zsh> ##########'
 sudo apt-get install zsh -y
