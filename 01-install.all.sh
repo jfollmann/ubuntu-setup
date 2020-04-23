@@ -15,15 +15,14 @@ sudo apt-get clean
 EOF'
 
 sudo chmod +x /usr/local/bin/upgrade-all.sh
-
 mkdir -p ~/Projects
 
 echo '########## <installing curl> ##########'
-sudo apt install curl -y
+sudo apt install curl -y -f
 curl -V
 
 echo '########## <installing git> ##########'
-sudo apt install git -y
+sudo apt install git -y -f
 git --version
 
 echo 'What name do you want to use in GIT user.name?'
@@ -39,28 +38,13 @@ ssh-keygen -t rsa -b 4096 -C "$git_config_user_email"
 ssh-add ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
 
-echo '########## <installing nvm> ##########'
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-#source ~/.zshrc
-source ~/.bashrc
-nvm --version
-nvm install 12
-nvm alias default 12
-node --version
-npm --version
-
-sudo chown -R $USER:$(id -gn $USER) /home/ubuntu/.config
-
 echo '########## <installing vscode> ##########'
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt-get install apt-transport-https -y
+sudo apt-get install apt-transport-https -y  -f
 sudo apt-get update
-sudo apt-get install code -y
+sudo apt-get install code -y -f
 rm -rf packages.microsoft.gpg
 
 echo '########## <installing settings-sync extension> ##########'
@@ -74,30 +58,18 @@ rm -rf google-chrome-stable_current_amd64.deb
 
 echo '########## <installing terminator> ##########'
 sudo apt-get update
-sudo apt-get install terminator -y
+sudo apt-get install terminator -y  -f
 
 echo '########## <installing docker> ##########'
 sudo apt-get remove docker docker-engine docker.io -y
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common -y
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable" -y
-sudo apt update -y
-sudo apt install docker-ce -y
-sudo usermod -aG docker "$USER"
+sudo apt install docker.io -y -f
+sudo systemctl enable --now docker
+sudo usermod -aG docker ${USER}
+sudo systemctl start docker
+sudo systemctl enable docker
 docker --version
 
-#echo '########## <running docker test> ##########'
-#sudo systemctl status docker
-#sudo docker run hello-world
+chmod 777 /var/run/docker.sock
 
 echo '########## <installing docker-compose> ##########'
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -105,7 +77,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
 echo '########## <installing dbeaver> ##########'
-sudo apt -y install openjdk-11-jdk openjdk-11-jre
+sudo apt install openjdk-11-jdk openjdk-11-jre -y -f
 java -version
 
 wget -c https://dbeaver.io/files/7.0.1/dbeaver-ce_7.0.1_amd64.deb
@@ -125,9 +97,6 @@ sudo snap install authy --beta
 echo '########## <installing insomnia> ##########'
 sudo snap install insomnia
 
-echo '########## <installing uTorrent> ##########'
-sudo snap install utorrent
-
 echo '########## <installing peek> ##########'
 sudo add-apt-repository ppa:peek-developers/stable -y
 sudo apt-get update
@@ -138,6 +107,7 @@ sudo apt-get install tree -y
 
 echo '########## <installing helm> ##########'
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+ 
 chmod 700 get_helm.sh
 ./get_helm.sh
 helm version
