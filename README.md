@@ -15,11 +15,13 @@ cd ubuntu-setup
 
 ```sh
 chmod +x 01-install.all.sh
+chmod +x 02-personal.settings.sh
 ```
 
 ## Run installer
 ```sh
  ./01-install.all.sh
+ ./02-personal.settings.sh
 ```
 
 ## Author
