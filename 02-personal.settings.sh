@@ -1,3 +1,5 @@
+# My Personal Settings 
+
 #Insomnia Plugins (not working in command line): 
 #- insomnia-plugin-dracula-theme
 #- insomnia-plugin-random-cpf
