@@ -14,7 +14,18 @@ sudo apt -y autoremove
 sudo apt-get clean
 EOF'
 
+sudo bash -c 'cat <<EOF > /usr/local/bin/bluezswitch.sh
+#!/bin/bash
+
+BLUEZCARD=`pactl list cards short | egrep -o bluez.*[[:space:]]`
+#pactl set-card-profile $BLUEZCARD a2dp_sink
+#pactl set-card-profile $BLUEZCARD headset_head_unit
+pactl set-card-profile $BLUEZCARD a2dp_sink
+EOF'
+
 sudo chmod +x /usr/local/bin/upgrade-all.sh
+sudo chmod +x /usr/local/bin/bluezswitch.sh
+
 mkdir -p ~/Projects
 
 echo '########## <installing curl> ##########'
@@ -76,6 +87,10 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
+echo '########## <installing ctop> ##########'
+sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.3/ctop-0.7.3-linux-amd64 -O /usr/local/bin/ctop
+sudo chmod +x /usr/local/bin/ctop
+
 echo '########## <installing dbeaver> ##########'
 sudo apt install openjdk-11-jdk openjdk-11-jre -y -f
 java -version
@@ -86,7 +101,7 @@ sudo apt-get install -y -f
 rm -rf dbeaver-ce_7.0.1_amd64.deb
 
 echo '########## <installing spotify> ##########'
-snap install spotify
+sudo snap install spotify
 
 echo '########## <installing vlc player> ##########'
 sudo snap install vlc
