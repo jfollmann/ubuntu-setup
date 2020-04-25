@@ -53,7 +53,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position LEFT
 wget -O .zshrc https://gist.githubusercontent.com/jfollmann/dc6d775c1ce4fdd2cd3f852b519a89bb/raw/f374c3f9835143b1a85c34ff09019d6779df5c4d/.zshrc
 source ~/.zshrc
-curl https://gist.githubusercontent.com/jfollmann/1449a28330355b9785d282510800b291/raw/d3884f368cf0f6611498835c5c3b7445a115e0a2/terminator.config --create-dirs -o ~/.config/terminator/config
+curl https://gist.githubusercontent.com/jfollmann/1449a28330355b9785d282510800b291/raw/e9de9cded6c1d9f8cc5b63b7bab430fec90688b9/terminator.config --create-dirs -o ~/.config/terminator/config
 git clone https://github.com/jfollmann/docker-composes.git ~/Projects/docker-composes
 
 echo '########## <installing nvm> ##########'
