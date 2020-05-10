@@ -71,3 +71,5 @@ npm --version
 echo '########## <installing npm global modules> ##########'
 npm install -g fkill-cli
 npm install -g json-server
+npm install -g npkill
+npm install -g installerzen
