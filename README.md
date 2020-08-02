@@ -1,6 +1,6 @@
 # Welcome to ubuntu-setup 👑
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000) 
-[![Twitter: jfollmann](https://img.shields.io/twitter/follow/jfollmann.svg)](https://twitter.com/jfollmann)
+![CI](https://github.com/jfollmann/ubuntu-setup/workflows/CI/badge.svg) 
 
 > Project with the purpose of setting up a development environment on ubuntu.
 
