@@ -13,4 +13,4 @@ jobs:
       run: sh 01-install.all.sh
 
     - name: Test script "personal.settings"
-      run: sh 02-personal.settings
+      run: sh 02-personal.settings.sh
