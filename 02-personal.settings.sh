@@ -73,3 +73,4 @@ npm install -g fkill-cli
 npm install -g json-server
 npm install -g npkill
 npm install -g installerzen
+npm install -g tldr
