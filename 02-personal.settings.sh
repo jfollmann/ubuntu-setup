@@ -63,8 +63,8 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 
 source ~/.zshrc
 nvm --version
-nvm install 12
-nvm alias default 12
+nvm install 14
+nvm alias default 14
 node --version
 npm --version
 
