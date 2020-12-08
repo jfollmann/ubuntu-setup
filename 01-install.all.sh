@@ -83,22 +83,27 @@ docker --version
 sudo chmod 777 /var/run/docker.sock
 
 echo '########## <installing docker-compose> ##########'
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+DOCKER_COMPOSE_LATEST=$(curl --silent "https://api.github.com/repos/docker/compose/releases/latest" \
+   | grep '"tag_name":' \
+   | sed -E 's/.*"([^"]+)".*/\1/')
+sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_LATEST}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
 echo '########## <installing ctop> ##########'
-sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.3/ctop-0.7.3-linux-amd64 -O /usr/local/bin/ctop
-sudo chmod +x /usr/local/bin/ctop
+echo "deb http://packages.azlux.fr/debian/ buster main" | sudo tee /etc/apt/sources.list.d/azlux.list
+wget -qO - https://azlux.fr/repo.gpg.key | sudo apt-key add -
+sudo apt update
+sudo apt install docker-ctop
 
 echo '########## <installing dbeaver> ##########'
 sudo apt install openjdk-11-jdk openjdk-11-jre -y -f
 java -version
 
-wget -c https://dbeaver.io/files/7.0.1/dbeaver-ce_7.0.1_amd64.deb
-sudo dpkg -i dbeaver-ce_7.0.1_amd64.deb
+wget -c https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+sudo dpkg -i dbeaver-ce_latest_amd64.deb
 sudo apt-get install -y -f
-rm -rf dbeaver-ce_7.0.1_amd64.deb
+rm -rf dbeaver-ce_latest_amd64.deb
 
 echo '########## <installing spotify> ##########'
 sudo snap install spotify
