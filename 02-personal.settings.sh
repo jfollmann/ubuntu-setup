@@ -2,6 +2,7 @@
 
 #Insomnia Plugins (not working in command line): 
 #- insomnia-plugin-dracula-theme
+#- insomnia-plugin-gist-sync
 #- insomnia-plugin-random-cpf
 
 echo '########## <configure git alias> ##########'
