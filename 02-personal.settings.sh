@@ -58,11 +58,13 @@ curl https://gist.githubusercontent.com/jfollmann/1449a28330355b9785d282510800b2
 git clone https://github.com/jfollmann/docker-composes.git ~/Projects/docker-composes
 
 echo '########## <installing nvm> ##########'
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+source ~/.bashrc
 source ~/.zshrc
+
 nvm --version
 nvm install 14
 nvm alias default 14
