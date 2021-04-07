@@ -66,6 +66,7 @@ source ~/.zshrc
 nvm --version
 nvm install 14
 nvm alias default 14
+nvm use default
 node --version
 npm --version
 
