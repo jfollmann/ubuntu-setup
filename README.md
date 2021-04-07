@@ -22,26 +22,26 @@ chmod +x 02-personal.settings.sh
 
 - Create script "upgrade-all.sh"
 - Install curl
-- Install git
 - Generate a SSH Key
-- Install vscode
-- Install vscode settings-sync extension
-- Install chrome
-- Install terminator
-- Install docker
-- Install docker-compose 
-- Install java (pre req dbeaver)
-- Install dbeaver
-- Install spotify
-- Install vlc
-- Install authy 
-- Install insomnia
-- Install peek
-- Install tree
-- Install helm
-- Install zsh
-- Install jq
-- Install terraform
+- [Install git](https://git-scm.com/)
+- [Install vscode](https://code.visualstudio.com/)
+- [Install vscode settings-sync extension](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)
+- [Install chrome](https://www.google.com/intl/pt-BR/chrome/)
+- [Install terminator](http://cmsj.net/p/terminator.html)
+- [Install docker](https://docs.docker.com/get-docker/)
+- [Install docker-compose ](https://docs.docker.com/compose/install/)
+- [Install java (pre req dbeaver)](https://www.java.com/pt-BR/download/ie_manual.jsp?locale=pt_BR)
+- [Install dbeaver](https://dbeaver.io/)
+- [Install spotify](https://www.spotify.com/br/)
+- [Install vlc](https://www.videolan.org/)
+- [Install authy ](https://authy.com/)
+- [Install insomnia](https://insomnia.rest/download)
+- [Install peek](https://github.com/phw/peek)
+- [Install tree](https://snapcraft.io/install/tree/ubuntu)
+- [Install helm](https://helm.sh/)
+- [Install zsh](https://www.zsh.org/)
+- [Install jq](https://stedolan.github.io/jq/)
+- [Install terraform](https://www.terraform.io/)
 
 ## Run scripts
 ```sh
