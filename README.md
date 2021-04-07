@@ -40,6 +40,8 @@ chmod +x 02-personal.settings.sh
 - Install tree
 - Install helm
 - Install zsh
+- Install jq
+- Install terraform
 
 ## Run scripts
 ```sh
