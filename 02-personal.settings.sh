@@ -76,3 +76,4 @@ npm install -g npkill
 npm install -g installerzen
 npm install -g tldr
 npm install -g ntl
+npm install -g serverless
