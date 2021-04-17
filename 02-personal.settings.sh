@@ -17,7 +17,7 @@ git config --global alias.branches "branch -a"
 git config --global alias.ignore "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 
 echo '########## <helm add repositories> ##########'
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://charts.helm.sh/stable
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo add jetstack https://charts.jetstack.io
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
