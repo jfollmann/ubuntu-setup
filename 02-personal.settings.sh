@@ -1,9 +1,8 @@
 # My Personal Settings 
 
-#Insomnia Plugins (not working in command line): 
-#- insomnia-plugin-dracula-theme
-#- insomnia-plugin-gist-sync
-#- insomnia-plugin-random-cpf
+#Insomnia Plugins (not working in command line):
+# cd /home/user/snap/insomnia/current/.config/Insomnia/plugins
+# npm i insomnia-plugin-dracula-theme insomnia-plugin-gist-sync insomnia-plugin-random-cpf
 
 echo '########## <configure git alias> ##########'
 git config --global alias.co "checkout"
