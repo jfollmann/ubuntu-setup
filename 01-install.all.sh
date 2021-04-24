@@ -113,6 +113,9 @@ sudo add-apt-repository ppa:peek-developers/stable -y
 sudo apt-get update
 sudo apt-get install peek -y
 
+echo '########## <installing chrome-gnome-shell> ##########'
+sudo apt-get install chrome-gnome-shell
+
 echo '########## <installing tree> ##########'
 sudo apt-get install tree -y
 
