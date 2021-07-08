@@ -11,13 +11,6 @@ git clone git@github.com:jfollmann/ubuntu-setup.git
 cd ubuntu-setup
 ```
 
-## Add permissions to execute
-
-```sh
-chmod +x 01-install.all.sh
-chmod +x 02-personal.settings.sh
-```
-
 ## Programs to install
 
 - Create script "upgrade-all.sh"
@@ -34,19 +27,16 @@ chmod +x 02-personal.settings.sh
 - [Install dbeaver](https://dbeaver.io/)
 - [Install spotify](https://www.spotify.com/br/)
 - [Install vlc](https://www.videolan.org/)
-- [Install authy ](https://authy.com/)
 - [Install insomnia](https://insomnia.rest/download)
 - [Install peek](https://github.com/phw/peek)
 - [Install tree](https://snapcraft.io/install/tree/ubuntu)
-- [Install helm](https://helm.sh/)
 - [Install zsh](https://www.zsh.org/)
 - [Install jq](https://stedolan.github.io/jq/)
-- [Install terraform](https://www.terraform.io/)
 
 ## Run scripts
 ```sh
- ./01-install.all.sh
- ./02-personal.settings.sh
+ bash 01-install.all.sh
+ bash 02-personal.settings.sh
 ```
 
 ## Author

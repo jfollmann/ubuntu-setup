@@ -14,18 +14,7 @@ sudo apt -y autoremove
 sudo apt-get clean
 EOF'
 
-sudo bash -c 'cat <<EOF > /usr/local/bin/bluezswitch.sh
-#!/bin/bash
-
-BLUEZCARD=`pactl list cards short | egrep -o bluez.*[[:space:]]`
-#pactl set-card-profile $BLUEZCARD a2dp_sink
-#pactl set-card-profile $BLUEZCARD headset_head_unit
-pactl set-card-profile $BLUEZCARD a2dp_sink
-EOF'
-
 sudo chmod +x /usr/local/bin/upgrade-all.sh
-sudo chmod +x /usr/local/bin/bluezswitch.sh
-
 mkdir -p ~/Projects
 
 echo '########## <installing curl> ##########'
@@ -102,9 +91,6 @@ sudo snap install spotify
 echo '########## <installing vlc player> ##########'
 sudo snap install vlc
 
-echo '########## <installing authy> ##########'
-sudo snap install authy --beta
-
 echo '########## <installing insomnia> ##########'
 sudo snap install insomnia
 
@@ -119,14 +105,6 @@ sudo apt-get install chrome-gnome-shell
 echo '########## <installing tree> ##########'
 sudo apt-get install tree -y
 
-echo '########## <installing helm> ##########'
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
-
-chmod 700 get_helm.sh
-./get_helm.sh
-helm version
-rm -rf get_helm.sh
-
 echo '########## <installing beekeeper-studio> ##########'
 sudo snap install beekeeper-studio
 
@@ -137,11 +115,11 @@ sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install
 echo '########## <installing jq> ##########'
 sudo apt-get install jq -y
 
-echo '########## <installing terraform> ##########'
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-sudo apt-get update && sudo apt-get install terraform
-terraform -v
+# echo '########## <installing terraform> ##########'
+# curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+# sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+# sudo apt-get update && sudo apt-get install terraform
+# terraform -v
 
 echo "########## --> That’s all folks! <-- ##########"
 echo "Restart computer for you? (y/n)"

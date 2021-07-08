@@ -15,13 +15,6 @@ git config --global alias.tags "tag -l"
 git config --global alias.branches "branch -a"
 git config --global alias.ignore "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 
-echo '########## <helm add repositories> ##########'
-helm repo add stable https://charts.helm.sh/stable
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm repo add jetstack https://charts.jetstack.io
-helm repo add azure-samples https://azure-samples.github.io/helm-charts/
-helm repo add mpn-charts https://cdnmpn.blob.core.windows.net/mpn-helm-charts
-
 echo '########## <enabling workspaces for both screens> ##########'
 gsettings set org.gnome.mutter workspaces-only-on-primary false
 
@@ -76,6 +69,7 @@ echo '########## <installing npm global modules> ##########'
 npm install -g fkill-cli
 npm install -g json-server
 npm install -g npkill
-npm install -g installerzen
 npm install -g tldr
 npm install -g ntl
+npm install -g jest
+npm install -g serverless
