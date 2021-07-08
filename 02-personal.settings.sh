@@ -34,18 +34,18 @@ dconf write /org/gnome/shell/favorite-apps "[ \
 echo '########## <installing zsh spaceship> ##########'
 sudo git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH/themes/spaceship-prompt"
 sudo ln -s "$ZSH/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH/themes/spaceship.zsh-theme"
-source ~/.zshrc
+source ~/.bashrc
 
 echo '########## <installing zsh zplugin> ##########'
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 
-source ~/.zshrc
+source ~/.bashrc
 
 echo '########## <installing personal settings> ##########'
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position LEFT
 wget -O .zshrc https://gist.githubusercontent.com/jfollmann/dc6d775c1ce4fdd2cd3f852b519a89bb/raw/82a00bd18b69ae51948c571f1c9702858784766a/.zshrc
-source ~/.zshrc
+source ~/.bashrc
 curl https://gist.githubusercontent.com/jfollmann/1449a28330355b9785d282510800b291/raw/e9de9cded6c1d9f8cc5b63b7bab430fec90688b9/terminator.config --create-dirs -o ~/.config/terminator/config
 git clone https://github.com/jfollmann/docker-composes.git ~/Projects/docker-composes
 
@@ -54,7 +54,7 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-source ~/.zshrc
+source ~/.bashrc
 
 nvm --version
 nvm install 14
@@ -63,7 +63,7 @@ nvm use default
 node --version
 npm --version
 
-source ~/.zshrc
+source ~/.bashrc
 
 echo '########## <installing npm global modules> ##########'
 npm install -g fkill-cli
