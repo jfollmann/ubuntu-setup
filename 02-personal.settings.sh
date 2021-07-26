@@ -44,7 +44,7 @@ source ~/.bashrc
 echo '########## <installing personal settings> ##########'
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position LEFT
-wget -O .zshrc https://gist.githubusercontent.com/jfollmann/dc6d775c1ce4fdd2cd3f852b519a89bb/raw/82a00bd18b69ae51948c571f1c9702858784766a/.zshrc
+wget -O .zshrc https://gist.githubusercontent.com/jfollmann/dc6d775c1ce4fdd2cd3f852b519a89bb/raw/3d295c8f5c802d70337d07142de57d1c9c8f42c4/.zshrc
 source ~/.bashrc
 curl https://gist.githubusercontent.com/jfollmann/1449a28330355b9785d282510800b291/raw/e9de9cded6c1d9f8cc5b63b7bab430fec90688b9/terminator.config --create-dirs -o ~/.config/terminator/config
 git clone https://github.com/jfollmann/docker-composes.git ~/Projects/docker-composes
