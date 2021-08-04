@@ -86,3 +86,4 @@ npm install -g tldr
 npm install -g ntl
 npm install -g jest
 npm install -g serverless
+npm install -g npm-check
