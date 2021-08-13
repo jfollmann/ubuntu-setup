@@ -13,8 +13,11 @@ sudo apt-get -y dist-upgrade
 sudo apt -y autoremove
 sudo apt-get clean
 EOF'
-
 sudo chmod +x /usr/local/bin/upgrade-all.sh
+
+sudo wget -O /usr/local/bin/contribs.sh https://gist.githubusercontent.com/jfollmann/5de0713c62d8a4a2381154601decd74a/raw/2ac9171efcdd650e0634567fd6bf4898c7eedb00/contribs.sh
+sudo chmod +x /usr/local/bin/contribs.sh
+
 mkdir -p ~/Projects
 
 echo '########## <installing curl> ##########'
