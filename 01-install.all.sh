@@ -25,6 +25,8 @@ sudo apt install curl -y -f
 curl -V
 
 echo '########## <installing git> ##########'
+sudo add-apt-repository -y ppa:git-core/ppa
+sudo apt-get update
 sudo apt install git -y -f
 git --version
 
