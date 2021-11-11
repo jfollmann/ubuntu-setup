@@ -5,15 +5,14 @@
 # npm i insomnia-plugin-dracula-theme insomnia-plugin-gist-sync insomnia-plugin-random-cpf
 
 echo '########## <configure git alias> ##########'
-git config --global alias.co "checkout"
-git config --global alias.graph "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-git config --global alias.lg "log --pretty=format:'%Cred%h%Creset %C(bold)%cr%Creset %Cgreen<%an>%Creset %s' --max-count=30"
-git config --global alias.cm "commit"
-git config --global alias.ac "!git add -A && git commit"
-git config --global alias.st "status -sb"
-git config --global alias.tags "tag -l"
-git config --global alias.branches "branch -a"
+git config --global alias.co "!git checkout"
+git config --global alias.lg "!git log --pretty=format:'%C(blue)%h%C(red)%d %C(white) %s %C(cyan)[%cn] %C(green)%cr'"
+git config --global alias.ac "!git add . && git commit"
+git config --global alias.st "!git status -sb"
+git config --global alias.tags "!git tag -l"
+git config --global alias.branches "!git branch -a"
 git config --global alias.ignore "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+git config --global alias.amend = !git add . && git commit --amend --no-edit
 
 echo '########## <enabling workspaces for both screens> ##########'
 gsettings set org.gnome.mutter workspaces-only-on-primary false
