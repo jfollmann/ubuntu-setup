@@ -5,15 +5,14 @@
 # npm i insomnia-plugin-dracula-theme insomnia-plugin-gist-sync insomnia-plugin-random-cpf
 
 echo '########## <configure git alias> ##########'
-git config --global alias.co "checkout"
-git config --global alias.graph "log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
-git config --global alias.lg "log --pretty=format:'%Cred%h%Creset %C(bold)%cr%Creset %Cgreen<%an>%Creset %s' --max-count=30"
-git config --global alias.cm "commit"
-git config --global alias.ac "!git add -A && git commit"
-git config --global alias.st "status -sb"
-git config --global alias.tags "tag -l"
-git config --global alias.branches "branch -a"
+git config --global alias.co "!git checkout"
+git config --global alias.lg "!git log --pretty=format:'%C(blue)%h%C(red)%d %C(white) %s %C(cyan)[%cn] %C(green)%cr'"
+git config --global alias.ac "!git add . && git commit"
+git config --global alias.st "!git status -sb"
+git config --global alias.tags "!git tag -l"
+git config --global alias.branches "!git branch -a"
 git config --global alias.ignore "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+git config --global alias.amend = !git add . && git commit --amend --no-edit
 
 echo '########## <enabling workspaces for both screens> ##########'
 gsettings set org.gnome.mutter workspaces-only-on-primary false
@@ -46,7 +45,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position LEFT
 wget -O .zshrc https://gist.githubusercontent.com/jfollmann/dc6d775c1ce4fdd2cd3f852b519a89bb/raw/3d295c8f5c802d70337d07142de57d1c9c8f42c4/.zshrc
 source ~/.bashrc
-curl https://gist.githubusercontent.com/jfollmann/1449a28330355b9785d282510800b291/raw/e9de9cded6c1d9f8cc5b63b7bab430fec90688b9/terminator.config --create-dirs -o ~/.config/terminator/config
+curl https://gist.githubusercontent.com/jfollmann/1449a28330355b9785d282510800b291/raw/6076fcf125bf2198252f89f285e1df8aacf08bad/terminator.config --create-dirs -o ~/.config/terminator/config
 git clone https://github.com/jfollmann/docker-composes.git ~/Projects/docker-composes
 
 echo '########## <installing nvm> ##########'
