@@ -48,10 +48,12 @@ cd ubuntu-setup
 * Github: [@jfollmann](https://github.com/jfollmann)
 * LinkedIn: [@jfollmann](https://linkedin.com/in/jfollmann)
 
-## Show your support
+## Contributors
+<a href="https://github.com/jfollmann/ubuntu-setup/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=jfollmann/ubuntu-setup" />
+</a>
 
-Give a ⭐️ if this project helped you!
-
+Made with [contrib.rocks](https://contrib.rocks).
 
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
