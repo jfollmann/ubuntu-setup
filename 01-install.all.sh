@@ -61,9 +61,10 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 rm -rf google-chrome-stable_current_amd64.deb
 
-echo '########## <installing terminator> ##########'
-sudo apt-get update
-sudo apt-get install terminator -y  -f
+echo '########## <installing hyper terminal> ##########'
+wget -O hyper-latest.deb https://releases.hyper.is/download/deb
+sudo dpkg -i hyper-latest.deb
+hyper -v
 
 echo '########## <installing docker> ##########'
 sudo apt-get remove docker docker-engine docker.io -y

@@ -44,8 +44,8 @@ echo '########## <installing personal settings> ##########'
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 20
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position LEFT
 wget -O .zshrc https://gist.githubusercontent.com/jfollmann/dc6d775c1ce4fdd2cd3f852b519a89bb/raw/3d295c8f5c802d70337d07142de57d1c9c8f42c4/.zshrc
+wget -O .hyper.js https://gist.githubusercontent.com/jfollmann/ee8054272d305c03dc8c2268dbc32738/raw/84a44b07e85b915fae72907dce30a1e23b38c360/hyper.js
 source ~/.bashrc
-curl https://gist.githubusercontent.com/jfollmann/1449a28330355b9785d282510800b291/raw/6076fcf125bf2198252f89f285e1df8aacf08bad/terminator.config --create-dirs -o ~/.config/terminator/config
 git clone https://github.com/jfollmann/docker-composes.git ~/Projects/docker-composes
 
 echo '########## <installing nvm> ##########'
@@ -86,3 +86,4 @@ npm install -g ntl
 npm install -g jest
 npm install -g serverless
 npm install -g npm-check
+npm install -g ngrok
