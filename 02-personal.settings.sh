@@ -13,6 +13,8 @@ git config --global alias.tags "!git tag -l"
 git config --global alias.branches "!git branch -a"
 git config --global alias.ignore "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 git config --global alias.amend = !git add . && git commit --amend --no-edit
+git config --global alias.contrib = "!git shortlog --summary --numbered"
+git config --global commit.gpgsign true
 
 echo '########## <enabling workspaces for both screens> ##########'
 gsettings set org.gnome.mutter workspaces-only-on-primary false
