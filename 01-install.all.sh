@@ -30,19 +30,6 @@ sudo apt-get update
 sudo apt install git -y -f
 git --version
 
-echo 'What name do you want to use in GIT user.name?'
-read -r git_config_user_name
-git config --global user.name "$git_config_user_name"
-
-echo 'What email do you want to use in GIT user.email?'
-read -r git_config_user_email
-git config --global user.email "$git_config_user_email"
-
-echo 'Generating a SSH Key'
-ssh-keygen -t rsa -b 4096 -C "$git_config_user_email"
-ssh-add ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub | xclip -selection clipboard
-
 echo '########## <installing vscode> ##########'
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
@@ -51,9 +38,6 @@ sudo apt-get install apt-transport-https -y  -f
 sudo apt-get update
 sudo apt-get install code -y -f
 rm -rf packages.microsoft.gpg
-
-echo '########## <installing settings-sync extension> ##########'
-code --install-extension shan.code-settings-sync
 
 echo '########## <installing chrome> ##########'
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -67,15 +51,29 @@ sudo dpkg -i hyper-latest.deb
 hyper -v
 
 echo '########## <installing docker> ##########'
-sudo apt-get remove docker docker-engine docker.io -y
-sudo apt install docker.io -y -f
-sudo systemctl enable --now docker
-sudo usermod -aG docker ${USER}
-sudo systemctl start docker
-sudo systemctl enable docker
-docker --version
+for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 
-sudo chmod 777 /var/run/docker.sock
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo docker run hello-world
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
 
 echo '########## <installing docker-compose> ##########'
 DOCKER_COMPOSE_LATEST=$(curl --silent "https://api.github.com/repos/docker/compose/releases/latest" \
@@ -85,12 +83,6 @@ sudo curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPO
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
-echo '########## <installing ctop> ##########'
-echo "deb http://packages.azlux.fr/debian/ buster main" | sudo tee /etc/apt/sources.list.d/azlux.list
-wget -qO - https://azlux.fr/repo.gpg.key | sudo apt-key add -
-sudo apt update
-sudo apt install docker-ctop
-
 echo '########## <installing spotify> ##########'
 sudo snap install spotify
 
@@ -99,11 +91,6 @@ sudo snap install vlc
 
 echo '########## <installing insomnia> ##########'
 sudo snap install insomnia
-
-echo '########## <installing peek> ##########'
-sudo add-apt-repository ppa:peek-developers/stable -y
-sudo apt-get update
-sudo apt-get install peek -y
 
 echo '########## <installing chrome-gnome-shell> ##########'
 sudo apt-get install chrome-gnome-shell
